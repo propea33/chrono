@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Compte à rebours scolaire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="classroom">
+      <section class="board" aria-labelledby="title">
+        <div class="top-row">
+          <div class="apple" aria-hidden="true"></div>
+          <p class="date-line">Fin des classes: 19 juin 2026 à 15 h 45</p>
+          <div class="chalk" aria-hidden="true"></div>
+        </div>
+
+        <h1 id="title">Il reste</h1>
+
+        <div class="countdown" aria-live="polite">
+          <div class="time-box">
+            <span id="days">00</span>
+            <small>jours</small>
+          </div>
+          <div class="time-box">
+            <span id="hours">00</span>
+            <small>heures</small>
+          </div>
+          <div class="time-box">
+            <span id="minutes">00</span>
+            <small>minutes</small>
+          </div>
+          <div class="time-box">
+            <span id="seconds">00</span>
+            <small>secondes</small>
+          </div>
+        </div>
+
+        <p id="message" class="message">avant les vacances d'été!</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

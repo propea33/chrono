@@ -1,0 +1,235 @@
+:root {
+  --chalkboard: #27624d;
+  --chalkboard-dark: #1d4639;
+  --chalk: #fff8dc;
+  --yellow: #ffd95a;
+  --red: #e94f37;
+  --blue: #4aa3df;
+  --paper: #fff7dc;
+  --wood: #b86f32;
+  --wood-dark: #875025;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--chalk);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    #f6d870;
+  background-size: 44px 44px;
+}
+
+.classroom {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.classroom::before {
+  content: "ABC";
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  font-family: "Baloo 2", system-ui, sans-serif;
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  font-weight: 800;
+  color: rgba(233, 79, 55, 0.25);
+  transform: rotate(-9deg);
+}
+
+.classroom::after {
+  content: "1 2 3";
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  font-family: "Baloo 2", system-ui, sans-serif;
+  font-size: clamp(2rem, 6vw, 4.8rem);
+  font-weight: 800;
+  color: rgba(74, 163, 223, 0.28);
+  transform: rotate(8deg);
+}
+
+.board {
+  width: min(1120px, 100%);
+  min-height: min(720px, calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(18px, 4vw, 34px);
+  padding: clamp(22px, 5vw, 56px);
+  border: clamp(12px, 2vw, 22px) solid var(--wood);
+  border-bottom-color: var(--wood-dark);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.11), transparent 28%),
+    linear-gradient(145deg, var(--chalkboard), var(--chalkboard-dark));
+  box-shadow: 0 22px 0 var(--wood-dark), 0 28px 42px rgba(61, 37, 15, 0.28);
+  position: relative;
+  z-index: 1;
+}
+
+.top-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.date-line {
+  margin: 0;
+  padding: 8px 16px;
+  border: 2px dashed rgba(255, 248, 220, 0.75);
+  border-radius: 8px;
+  font-family: "Baloo 2", system-ui, sans-serif;
+  font-size: clamp(1rem, 2.8vw, 1.55rem);
+  text-align: center;
+  color: var(--yellow);
+}
+
+.apple {
+  width: clamp(42px, 8vw, 72px);
+  aspect-ratio: 1;
+  background: var(--red);
+  border-radius: 48% 52% 54% 46%;
+  position: relative;
+  box-shadow: inset -8px -9px 0 rgba(134, 31, 22, 0.25);
+}
+
+.apple::before {
+  content: "";
+  position: absolute;
+  width: 16%;
+  height: 34%;
+  top: -18%;
+  left: 48%;
+  border-radius: 999px;
+  background: #6b3f1f;
+  transform: rotate(18deg);
+}
+
+.apple::after {
+  content: "";
+  position: absolute;
+  width: 34%;
+  height: 22%;
+  top: -8%;
+  left: 58%;
+  border-radius: 999px 0;
+  background: #4f9f57;
+  transform: rotate(-22deg);
+}
+
+.chalk {
+  width: clamp(58px, 10vw, 94px);
+  height: 16px;
+  border-radius: 999px;
+  background: var(--chalk);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.16);
+}
+
+h1 {
+  margin: 0;
+  font-family: "Baloo 2", system-ui, sans-serif;
+  font-size: clamp(3.4rem, 10vw, 8.8rem);
+  line-height: 0.9;
+  text-align: center;
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
+}
+
+.countdown {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(8px, 1.8vw, 18px);
+}
+
+.time-box {
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  min-height: clamp(112px, 18vw, 186px);
+  padding: clamp(10px, 2vw, 18px) 8px;
+  border: 3px solid rgba(255, 248, 220, 0.82);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 28px rgba(255, 255, 255, 0.05);
+}
+
+.time-box span {
+  width: 100%;
+  display: block;
+  font-family: "Baloo 2", system-ui, sans-serif;
+  font-size: clamp(2.7rem, 7.8vw, 7.2rem);
+  font-weight: 800;
+  line-height: 0.9;
+  text-align: center;
+  color: var(--yellow);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
+}
+
+.time-box small {
+  width: 100%;
+  display: block;
+  font-size: clamp(0.75rem, 1.7vw, 1.18rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  color: var(--paper);
+}
+
+.message {
+  margin: 0;
+  font-family: "Baloo 2", system-ui, sans-serif;
+  font-size: clamp(1.8rem, 5vw, 4rem);
+  line-height: 1;
+  text-align: center;
+  color: var(--paper);
+}
+
+@media (max-width: 760px) {
+  .countdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .top-row {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 430px) {
+  .classroom {
+    padding: 14px;
+  }
+
+  .board {
+    min-height: calc(100vh - 28px);
+  }
+
+  .top-row {
+    gap: 8px;
+  }
+
+  .date-line {
+    padding: 6px 8px;
+  }
+}
