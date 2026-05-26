@@ -46,9 +46,10 @@ function updateCountdown() {
 updateCountdown();
 
 function resizeCanvas() {
-  const rect = board.getBoundingClientRect();
+  const rect = canvas.getBoundingClientRect();
   const previous = document.createElement("canvas");
   const previousContext = previous.getContext("2d");
+  const previousScale = canvas.width / Math.max(Number.parseFloat(canvas.style.width), 1) || 1;
   const scale = window.devicePixelRatio || 1;
 
   previous.width = canvas.width;
@@ -68,7 +69,7 @@ function resizeCanvas() {
   context.lineWidth = 7;
 
   if (previous.width && previous.height) {
-    context.drawImage(previous, 0, 0, previous.width / scale, previous.height / scale);
+    context.drawImage(previous, 0, 0, previous.width / previousScale, previous.height / previousScale);
   }
 }
 
@@ -114,6 +115,7 @@ canvas.addEventListener("pointerdown", (event) => {
     return;
   }
 
+  event.preventDefault();
   isDrawing = true;
   lastPoint = getPoint(event);
   canvas.setPointerCapture(event.pointerId);
@@ -124,6 +126,7 @@ canvas.addEventListener("pointermove", (event) => {
     return;
   }
 
+  event.preventDefault();
   drawLine(getPoint(event));
 });
 

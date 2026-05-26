@@ -8,6 +8,7 @@
   --paper: #fff7dc;
   --wood: #b86f32;
   --wood-dark: #875025;
+  --drawing-top: 104px;
 }
 
 * {
@@ -85,11 +86,12 @@ body {
 
 .drawing-canvas {
   position: absolute;
-  inset: 0;
+  inset: var(--drawing-top) 0 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - var(--drawing-top));
   pointer-events: none;
   z-index: 2;
+  touch-action: none;
 }
 
 .board.drawing-mode .drawing-canvas {
@@ -99,7 +101,7 @@ body {
 
 .board > *:not(.drawing-canvas) {
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
 .top-row {
@@ -108,6 +110,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  z-index: 4;
 }
 
 .tool-group {
@@ -176,14 +179,14 @@ body {
 }
 
 .draw-toggle {
-  width: clamp(38px, 7vw, 58px);
+  width: clamp(56px, 10vw, 88px);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  border: 3px solid rgba(255, 248, 220, 0.86);
+  border: 4px solid rgba(255, 248, 220, 0.92);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.07), 0 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.07), 0 6px 0 rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
 
@@ -302,5 +305,9 @@ h1 {
 
   .date-line {
     padding: 6px 8px;
+  }
+
+  :root {
+    --drawing-top: 92px;
   }
 }
