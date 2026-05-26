@@ -14,8 +14,14 @@
   <body>
     <main class="classroom">
       <section class="board" aria-labelledby="title">
+        <canvas id="drawingCanvas" class="drawing-canvas" aria-hidden="true"></canvas>
         <div class="top-row">
-          <div class="apple" aria-hidden="true"></div>
+          <div class="tool-group">
+            <button class="apple" id="clearDrawing" type="button" aria-label="Effacer le dessin"></button>
+            <button class="draw-toggle" id="drawToggle" type="button" aria-pressed="false" aria-label="Dessiner avec la craie">
+              <span class="mini-chalk" aria-hidden="true"></span>
+            </button>
+          </div>
           <p class="date-line">Fin des classes: 19 juin 2026 à 15 h 45</p>
           <div class="chalk" aria-hidden="true"></div>
         </div>
